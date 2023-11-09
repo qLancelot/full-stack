@@ -90,7 +90,7 @@ class Session {
         $phone = isset($d['phone']) ? preg_replace('~\D+~', '', $d['phone']) : 0;
         // validate
         if (!$phone) return error_response(1003, 'One of the parameters was missing or was passed in the wrong format.', ['phone' => 'empty field']);
-        $user = User::user_info(['phone' => $phone]);
+        $user = User::user_info_auth(['phone' => $phone]);
         if ($user['access'] != 1) return error_response(1004, 'User with this phone is not found.', ['phone' => 'incorrect phone']);
         // query
         DB::query("UPDATE users SET phone_attempts_sms=phone_attempts_sms+1, phone_attempts_code='0' WHERE user_id='1' LIMIT 1;") or die (DB::error());

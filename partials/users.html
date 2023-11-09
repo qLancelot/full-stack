@@ -1,6 +1,6 @@
 <div class="sub_header">
   <div>
-    <div class="btn_sub" onclick="common.plot_edit_window();">Add</div>
+    <div class="btn_sub" onclick="common.user_edit_window();">Add</div>
   </div>
   <div>
     <div id="paginator">{$paginator}</div>
@@ -11,9 +11,9 @@
         type="text"
         value="{$search}"
         placeholder="Search"
-        oninput="common.search_do('plots');"
+        oninput="common.search_do('users');"
       />
     </div>
   </div>
 </div>
-<div id="table">{include file="./partials/plots_table.html"}</div>
+<div id="table">{include file="./partials/users_table.html"}</div>
